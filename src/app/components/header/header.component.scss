@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      max-height: 40px; // Adjust the height of the logo as needed
+      margin-right: 1rem;
+      width: 100px; // Adjust the width of the logo
+      height: auto;
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none; // Remove the default list item markers
+
+    .nav-item {
+      margin-left: 1rem;
+
+      .nav-link {
+        color: #000;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

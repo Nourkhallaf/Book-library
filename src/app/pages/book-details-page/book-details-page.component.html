@@ -1,0 +1,48 @@
+<!-- Book details -->
+<div class="container mt-5">
+
+    <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <!-- <p>Loading author details...</p> -->
+      </div>
+
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+
+
+    <div *ngIf="book && !isLoading && !error" class="card shadow-sm position-relative">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="book.cover_url || 'assets/default-cover.png'" alt="{{ book.title }}" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title">{{ book.title }}</h2>
+            <p class="card-text"><strong>Authors:</strong> {{ book.authors }}</p>
+            <p class="card-text"><strong>First Publish Year:</strong> {{ book.first_publish_year }}</p>
+            <p class="card-text"><strong>Edition Count:</strong> {{ book.edition_count }}</p>
+            <p class="card-text"><strong>Number of Pages:</strong> {{ book.number_of_pages }}</p>
+          </div>
+          <div class="wishlist-actions mt-3">
+              <button *ngIf="!isInWishlist" class="btn btn-primary" (click)="addToWishlist()">
+                Add to Wishlist
+              </button>
+              <button *ngIf="isInWishlist" class="btn btn-danger" (click)="removeFromWishlist()">
+                Remove from Wishlist
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast-container position-absolute toast-bottom" style="bottom: -60px;">
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" [class.show]="showToast">
+     
+          <div class="toast-body" *ngIf="isInWishlist">Book added to wishlist!</div>
+          <div class="toast-body" *ngIf="!isInWishlist">Book removed from wishlist!</div>
+        </div>
+      </div>
+    </div>
+</div>

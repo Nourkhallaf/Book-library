@@ -1,0 +1,48 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; // Ensure the card takes the full height of the container
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    overflow: hidden;
+  
+    .card-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem;
+      flex-grow: 1; // Allow the body to grow and take available space
+  
+      img {
+        max-width: 100px; 
+        max-height: 150px; 
+        margin-right: 1rem;
+        object-fit: cover; 
+      }
+  
+      .card-content {
+        flex-grow: 1; 
+      }
+    }
+  
+    .card-footer {
+      display: flex;
+      justify-content: flex-end; // Align items to the right
+      padding: 0.75rem 1rem;
+      background-color: #f8f9fa;
+      border-top: 1px solid #ddd;
+  
+      .card-link {
+        font-size: 0.875rem;
+        color: #007bff;
+        text-decoration: none;
+        margin-left: 1rem; // Add space between links
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  

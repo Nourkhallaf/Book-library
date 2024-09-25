@@ -1,0 +1,21 @@
+<div class="container mt-5 themed-container">
+    <h2 class="themed-title">My Wishlist</h2>
+  
+    <div *ngIf="wishlistBooks.length === 0" class="alert alert-info mt-3 themed-alert">
+      Your wishlist is currently empty.
+    </div>
+  
+    <div *ngIf="wishlistBooks.length > 0" class="row themed-grid">
+      <div class="col-md-4 mb-4 themed-item" *ngFor="let book of wishlistBooks">
+        <app-wishlist-item [book]="book" (bookRemoved)="handleBookRemoved()"></app-wishlist-item>
+      </div>
+    </div>
+  
+    <div *ngIf="showToast" class="custom-toast">
+      <div class="toast-body">
+        {{ toastMessage }}
+        <button type="button" class="btn-close" (click)="hideToast()">×</button>
+      </div>
+    </div>
+  </div>
+  

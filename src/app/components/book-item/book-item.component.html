@@ -1,0 +1,23 @@
+<!-- src/app/components/book-item/book-item.component.html -->
+
+<div class="card mb-3">
+  <div class="card-body d-flex">
+    <img [src]="book.cover_url" (click)="goToDetails()" class="card-img" alt="{{ book.title }}">
+    <div class="book-details">
+        <h5 class="card-title" (click)="goToDetails()">{{ book.title }}</h5>
+        <p class="card-text">Publication Year: {{ book.first_publish_year }}</p>
+
+    
+       <span *ngFor="let author of book.authors; let i = index">
+        <a (click)="goToAuthorDetails(author.id)">{{ author.name }}</a>
+        <span *ngIf="i < book.authors.length - 1">, </span>
+      </span> 
+     
+    </div>
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="['/book', book.id]" class="card-link">More</a>
+    |
+    <a [routerLink]="['/wishlist']" class="card-link">Wishlist</a>
+  </div>
+</div>
