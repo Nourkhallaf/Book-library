@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book.model';
@@ -15,7 +16,9 @@ export class WishlistItemComponent {
   @Output() bookRemoved: EventEmitter<void> = new EventEmitter<void>();
   @ViewChild('confirmModal') confirmModal!: ElementRef;
 
-  constructor(  private wishlistService: WishlistService
+  constructor(private wishlistService: WishlistService,
+    private router: Router,
+
   ) {}
 
   openConfirmModal(): void {
@@ -30,5 +33,15 @@ export class WishlistItemComponent {
     if (modal) {
       modal.hide();
     }
+  }
+
+  goToDetails(): void {
+    if (this.book && this.book.id) {
+      this.router.navigate(['/book', this.book.id]);
+    }
+  }
+
+  goToAuthorDetails(authorId: string): void {
+    this.router.navigate(['/author', authorId]);
   }
 }

@@ -9,9 +9,9 @@
     align-items: center;
 
     .logo {
-      max-height: 40px; // Adjust the height of the logo as needed
+      max-height: 40px;
       margin-right: 1rem;
-      width: 100px; // Adjust the width of the logo
+      width: 100px;
       height: auto;
     }
   }
@@ -19,7 +19,7 @@
   .navbar-nav {
     display: flex;
     align-items: center;
-    list-style: none; // Remove the default list item markers
+    list-style: none; 
 
     .nav-item {
       margin-left: 1rem;

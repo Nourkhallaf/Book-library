@@ -1,9 +1,9 @@
-// src/app/pages/book-details-page/book-details-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BookService } from '../../services/book.service';  // Import the BookService
+import { BookService } from '../../services/book.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { ToastrService, ToastrConfig } from 'ngx-toastr';
+import { Book } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-book-details-page',
@@ -11,27 +11,26 @@ import { ToastrService, ToastrConfig } from 'ngx-toastr';
   styleUrls: ['./book-details-page.component.scss']
 })
 export class BookDetailsPageComponent implements OnInit {
-  book: any = null;  
+  book!: Book ;
   isLoading = true;
-  error = '';  
+  error = '';
   isInWishlist = false;
   showToast: boolean = false;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private bookService: BookService,
     private wishlistService: WishlistService,
     private toastr: ToastrService
   ) {}
 
- 
   async ngOnInit(): Promise<void> {
     try {
-      const bookId = this.route.snapshot.paramMap.get('id');
-      
+      const bookId = this.route.snapshot.params['id']
+
       if (bookId) {
+
         this.book = await this.bookService.getBookDetails(bookId);
-        
         if (this.book) {
           this.isInWishlist = this.wishlistService.isInWishlist(this.book.id);
         }else{
@@ -43,9 +42,8 @@ export class BookDetailsPageComponent implements OnInit {
       }
     } catch (err) {
       this.error = 'An error occurred while fetching book details.';
-    } 
+    }
       this.isLoading = false;
-  
   }
 
 
@@ -54,7 +52,7 @@ export class BookDetailsPageComponent implements OnInit {
       this.wishlistService.addToWishlist(this.book);
       this.isInWishlist = true;
       this.showToast = true;
-      setTimeout(() => this.hideToast(), 3000); 
+      setTimeout(() => this.hideToast(), 3000);
     }
   }
 
@@ -63,7 +61,7 @@ export class BookDetailsPageComponent implements OnInit {
       this.wishlistService.removeFromWishlist(this.book.id);
       this.isInWishlist = false;
       this.showToast = true;
-      setTimeout(() => this.hideToast(), 3000); 
+      setTimeout(() => this.hideToast(), 3000);
 
     }
   }

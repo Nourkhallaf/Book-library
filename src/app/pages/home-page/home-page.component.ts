@@ -18,7 +18,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((books: Book[]) => {
       this.books = books;
-      console.log("books", this.books)
       this.isLoading = false;
 
       if (books.length === 0) {

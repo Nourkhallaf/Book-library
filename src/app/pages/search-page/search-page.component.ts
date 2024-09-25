@@ -23,7 +23,6 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
-  // Getter for the search form controls
   get searchKey() {
     return this.searchForm.get('searchKey')?.value;
   }
@@ -32,7 +31,6 @@ export class SearchPageComponent implements OnInit {
     return this.searchForm.get('searchTerm')?.value;
   }
 
-  // Perform the search based on the selected category and search term
   performSearch(): void {
     if (this.searchForm.valid) {
       const searchKey = this.searchKey;
@@ -46,11 +44,10 @@ export class SearchPageComponent implements OnInit {
       this.isLoading = true;
       this.errorMessage = '';
 
-      // Search books based on the selected category (title, author, or subject)
       this.bookService.searchBook(searchKey, searchTerm).subscribe({
         next: (books: Book[]) => {
           this.isLoading = false;
-          this.books = books.slice(0, 9); // Limit to the first 9 books
+          this.books = books.slice(0, 9);
           if (this.books.length === 0) {
             this.errorMessage = 'No results found for your search.';
           }
@@ -59,10 +56,8 @@ export class SearchPageComponent implements OnInit {
           this.isLoading = false;
           this.errorMessage = 'Failed to load search results. Please try again later.';
           console.error('Error fetching search results:', error);
-        },
-        complete: () => {
-          console.log('Search completed');
         }
+
       });
     }
   }

@@ -1,24 +1,23 @@
-/* src/app/pages/book-details-page/book-details-page.component.css */
 .container {
     max-width: 800px;
     margin: 0 auto;
     margin-top: 2rem;
   }
-  
+
   .book-details {
     text-align: center;
   }
-  
+
   .book-title {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  
+
   .book-cover {
     flex: 1;
     text-align: center;
   }
-  
+
   .cover-placeholder {
     width: 150px;
     height: 200px;
@@ -28,64 +27,59 @@
     justify-content: center;
     margin: 0 auto;
   }
-  
+
   .book-info {
     flex: 2;
     text-align: left;
     padding-left: 2rem;
   }
-  
+
   .book-info ul {
     list-style: none;
     padding: 0;
   }
-  
+
   .book-info ul li {
     margin-bottom: 0.5rem;
   }
-  
+
   .book-info button {
     margin-top: 1rem;
   }
-  
+
   .card {
     margin-top: 1rem;
   }
-  
+
   .card-body {
     padding: 1.5rem;
   }
-  
+
   .wishlist-actions {
     display: flex;
     justify-content: flex-end;
     padding: 1rem;
   }
-  
+
   .btn {
     margin-left: 0.5rem;
   }
-  
+
 
 
   .toast-container {
-    top: 30%; 
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1055; // Ensure it's above other elements
+    z-index: 1055;
   }
-  
-  
-  
 
-  
-  
   .btn-close {
     background-color: transparent;
     border: none;
     color: #fff;
   }
-  
+
   .btn-close:hover {
     color: #ccc;
   }
@@ -93,17 +87,15 @@
 .toast-center-center {
   top: 50%;
   left: 50%;
-  // transform: translate(-70%, -50%);
 }
 
 .toast {
-  background-color: #007bff !important;  
-  color: white !important;               
+  background-color: #007bff !important;
+  color: white !important;
 }
 
 
 .toast .btn-close {
-  color: white !important;  
+  color: white !important;
 }
 
-  

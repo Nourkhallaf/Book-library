@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-body d-flex">
-    <img [src]="book.cover_url" alt="{{ book.title }}" class="card-img">
+    <img [src]="book.cover_url" (click)="goToDetails()" alt="{{ book.title }}" class="card-img">
     <div class="wishlist-details ml-3">
-      <h5 class="card-title">{{ book.title }}</h5>
+      <h5 class="card-title" (click)="goToDetails()">{{ book.title }}</h5>
       <p class="card-text">Publication Year: {{ book.first_publish_year }}</p>
-      <p class="card-text">Authors: 
+      <p class="card-text">Authors:
         <span *ngFor="let author of book.authors">
-          {{ author.name }}
-        </span> 
+          <a (click)="goToAuthorDetails(author.id)">{{ author}}</a>
+        </span>
       </p>
       <button class="btn btn-danger" (click)="openConfirmModal()">Remove</button>
     </div>

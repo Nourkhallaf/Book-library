@@ -16,25 +16,22 @@ export class WishlistPageComponent implements OnInit {
   constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.loadWishlist(); // Load wishlist when the page initializes
+    this.loadWishlist();
   }
 
-  // Function to load wishlist from localStorage
   loadWishlist(): void {
     this.wishlistBooks = this.wishlistService.getWishlist();
-    console.log("wishlistBooks", this.wishlistBooks);
   }
 
   handleBookRemoved(): void {
-    this.loadWishlist(); // Reload the wishlist after a book is removed
-    this.showRemovalNotification(); // Show the removal notification
+    this.loadWishlist();
+    this.showRemovalNotification();
   }
 
-  // Function to show a custom notification when a book is removed
   showRemovalNotification(): void {
     this.toastMessage = 'Book removed from your wishlist!';
     this.showToast = true;
-    setTimeout(() => this.hideToast(), 3000); // Auto-hide after 3 seconds
+    setTimeout(() => this.hideToast(), 3000); 
   }
 
   hideToast(): void {

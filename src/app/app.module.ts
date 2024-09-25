@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -35,15 +35,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     ToastrModule.forRoot(
      { timeOut: 3000,
-      positionClass: 'toast-top-right',  // Change position as needed
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
       progressBar: true,
-      progressAnimation: 'increasing',  // You can also use 'decreasing'
-      closeButton: true,  // Show close button for better user experience
-      })   
+      progressAnimation: 'increasing', 
+      closeButton: true,
+      })
   ],
   providers: [],
   bootstrap: [AppComponent]
